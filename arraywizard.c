@@ -32,10 +32,10 @@
 int main(int argc, char *argv[]) {
   int max_size = 256, i;
   if (argc == 2) max_size = atoi(argv[1]);
-  printf("#define _COUNT_ARGS(...) _COUNT_ARGS_(,##__VA_ARGS__");
+  printf("#define _MAGIC_ARRAY_NARGS(...) _MAGIC_ARRAY_NARGS_(,##__VA_ARGS__");
   for (i = max_size; i >= 0; --i) printf(",%i", i);
-  printf(")\n#define _COUNT_ARGS_(");
+  printf(")\n#define _MAGIC_ARRAY_NARGS_(");
   for (i = 0; i <= max_size; ++i) printf("_%i,", i);
-  printf("cnt,...) cnt\n#define MAGIC_ARRAY(...) {_COUNT_ARGS(__VA_ARGS__), ##__VA_ARGS__}\n");
+  printf("cnt,...) cnt\n#define MAGIC_ARRAY(...) {_MAGIC_ARRAY_NARGS(__VA_ARGS__),##__VA_ARGS__}\n");
   return 0;
 }

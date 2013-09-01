@@ -9,7 +9,7 @@ Using the macro
 ---------------
 
     #include <stdio.h>
-    #include "magicmacro.h"
+    #include "magicarray.h"
     int main() {
       const int abcd[] = MAGIC_ARRAY(1, 2, 3, 4, 5, 666, 777, 888, 999);
       printf("%li\n", sizeof(abcd) / sizeof(*abcd) - 1);
