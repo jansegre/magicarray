@@ -25,7 +25,7 @@ Generating a macro
 
 Compile `arraywizard.c` to `arraywizard` for instance.
 
-The following will generate the standard header with max supported size of 256.
+The following will generate the standard header with max supported size of 255.
 
     ./arraywizard > magicarray.h
 

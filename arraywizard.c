@@ -30,12 +30,12 @@
 #include <stdio.h>
 // Array Wizard: the MAGIC_ARRAY generator!
 int main(int argc, char *argv[]) {
-  int max_size = 256, i;
+  size_t max_size = 255, i;
   if (argc == 2) max_size = atoi(argv[1]);
   printf("#define _MAGIC_ARRAY_NARGS(...) _MAGIC_ARRAY_NARGS_(,##__VA_ARGS__");
-  for (i = max_size; i >= 0; --i) printf(",%i", i);
+  for (i = max_size + 1; i > 0; --i) printf(",%lli", (long long)i);
   printf(")\n#define _MAGIC_ARRAY_NARGS_(");
-  for (i = 0; i <= max_size; ++i) printf("_%i,", i);
+  for (i = 0; i <= max_size; ++i) printf("_%lli,", (long long)i);
   printf("cnt,...) cnt\n#define MAGIC_ARRAY(...) {_MAGIC_ARRAY_NARGS(__VA_ARGS__),##__VA_ARGS__}\n");
   return 0;
 }
